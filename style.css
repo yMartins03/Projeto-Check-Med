@@ -221,6 +221,7 @@ header nav ul li:hover::after {
     border: none;
     background-color: #00f7ff;
         transition: background-color 0.8s ease;
+    z-index: 7;
 }
 
 .btn:hover {
