@@ -21,7 +21,7 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 3;
+    z-index: 100;
 }
 
 .logo{
@@ -76,8 +76,9 @@ header nav ul li:hover::after {
     left: 50%;
     transform: translate(-50%, -50%);
     filter: blur(50px);
-    z-index: 1;
+    z-index: -1;
     animation: pulse 4s infinite alternate;
+    pointer-events: none;
 }
 
 @keyframes pulse {
@@ -105,6 +106,7 @@ header nav ul li:hover::after {
     justify-content: center;
     align-items: center;
     opacity: 0;
+    pointer-events: none;
 
     /* Animação */
     transform: translateX(100vw);
@@ -114,7 +116,7 @@ header nav ul li:hover::after {
 .active {
     opacity: 1;
     transform: translateX(0);
-
+    pointer-events: auto;
 }
 
 .product-img{
@@ -133,26 +135,6 @@ header nav ul li:hover::after {
     max-width: 80%;
     max-height: 60%;
     filter: drop-shadow(0 0 30px rgba(0, 247, 255, 0.3));
-    
-    transform: translateX(0);
-    opacity: 1;
-    transition: transform 0.6s ease, opacity 0.6s ease;
-}
-
-.active .product-img img {
-    animation: slideInImage 0.6s ease forwards;
-    animation-delay: 1.5s;
-}
-
-@keyframes slideInImage {
-    from {
-        transform: translateX(200px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
 }
 
 .content {
@@ -161,8 +143,9 @@ header nav ul li:hover::after {
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    z-index: 2;
+    z-index: 5;
     flex-direction: column;
+    position: relative;
 }
 
 .product-tag{
@@ -212,7 +195,7 @@ header nav ul li:hover::after {
 }
 
 .btn{
-    padding: 12px 10px;
+    padding: 12px 30px;
     border-radius: 30px;
     color: #000;
     font-size: 1rem;
@@ -220,12 +203,15 @@ header nav ul li:hover::after {
     cursor: pointer;
     border: none;
     background-color: #00f7ff;
-        transition: background-color 0.8s ease;
-    z-index: 7;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 25;
 }
 
 .btn:hover {
-    background-color: #145faa;
+    background-color: #0066cc;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 247, 255, 0.4);
 }
 
 .arrows{
@@ -236,7 +222,8 @@ header nav ul li:hover::after {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 5;
+    z-index: 50;
+    pointer-events: none;
 }
 
 .arrow-btn {
@@ -246,12 +233,18 @@ header nav ul li:hover::after {
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(0, 247, 255, 0.3);
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    pointer-events: auto;
 }
 
 .arrow-btn:hover {
-    background-color: rgba(0, 247, 255, 0.2);
+    background-color: rgba(0, 247, 255, 0.3);
     border-color: #00f7ff;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 247, 255, 0.4);
 }
 
 .indicators {
@@ -263,7 +256,7 @@ header nav ul li:hover::after {
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    z-index: 5;
+    z-index: 30;
 }
 
 .numbers{
